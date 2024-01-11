@@ -1,0 +1,965 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+
+<urn:MAPPING-ID1> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_group#name>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:column "name";
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_group#id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ]
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/auth_group>;
+      rr:template "http://example.org/mappingdata/auth_group/id={id}"
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `auth_group`"
+    ] .
+
+<urn:MAPPING-ID2> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "id"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_content_type#id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "app_label"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_content_type#app_label>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "model"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_content_type#model>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `django_content_type`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:class <http://example.org/mappingdata/django_content_type>;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/django_content_type/id={id}"
+    ] .
+
+<urn:MAPPING-ID3> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_permission#id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:column "name";
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_permission#name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "content_type_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_permission#content_type_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_permission#codename>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "codename"
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `auth_permission`"
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://example.org/mappingdata/auth_permission/id={id}";
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/auth_permission>
+    ] .
+
+<urn:MAPPING-ID4> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/auth_permission/id={auth_permission_id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/django_content_type/id={django_content_type_id}"
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_permission#ref-content_type_id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_permission`.`id` AS `auth_permission_id`, `django_content_type`.`id` AS `django_content_type_id` FROM `auth_permission`, `django_content_type` WHERE `auth_permission`.`content_type_id` = `django_content_type`.`id`"
+    ] .
+
+<urn:MAPPING-ID5> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/authentication_chathistory>;
+      rr:template "http://example.org/mappingdata/authentication_chathistory/id={id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_chathistory#response>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:string;
+          rr:termType rr:Literal;
+          rr:column "response"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_chathistory#llm_chat_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "llm_chat_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_chathistory#id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_chathistory#created_at>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "created_at";
+          rr:termType rr:Literal;
+          rr:datatype xsd:dateTime
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "prompt"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_chathistory#prompt>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_chathistory`"
+    ] .
+
+<urn:MAPPING-ID6> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `authentication_chathistory`.`id` AS `authentication_chathistory_id`, `authentication_llmchat`.`id` AS `authentication_llmchat_id` FROM `authentication_chathistory`, `authentication_llmchat` WHERE `authentication_chathistory`.`llm_chat_id` = `authentication_llmchat`.`id`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/authentication_chathistory/id={authentication_chathistory_id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_chathistory#ref-llm_chat_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:template "http://example.org/mappingdata/authentication_llmchat/id={authentication_llmchat_id}";
+          rr:termType rr:IRI
+        ]
+    ] .
+
+<urn:MAPPING-ID7> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_group_permissions#id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "group_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_group_permissions#group_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_group_permissions#permission_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal;
+          rr:column "permission_id"
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `auth_group_permissions`"
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://example.org/mappingdata/auth_group_permissions>;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/auth_group_permissions/id={id}"
+    ] .
+
+<urn:MAPPING-ID8> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/auth_group_permissions/id={auth_group_permissions_id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_group_permissions#ref-group_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:template "http://example.org/mappingdata/auth_group/id={auth_group_id}";
+          rr:termType rr:IRI
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_group_permissions`.`id` AS `auth_group_permissions_id`, `auth_group`.`id` AS `auth_group_id` FROM `auth_group_permissions`, `auth_group` WHERE `auth_group_permissions`.`group_id` = `auth_group`.`id`"
+    ] .
+
+<urn:MAPPING-ID9> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_group_permissions`.`id` AS `auth_group_permissions_id`, `auth_permission`.`id` AS `auth_permission_id` FROM `auth_group_permissions`, `auth_permission` WHERE `auth_group_permissions`.`permission_id` = `auth_permission`.`id`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:template "http://example.org/mappingdata/auth_group_permissions/id={auth_group_permissions_id}";
+      rr:termType rr:IRI
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/auth_permission/id={auth_permission_id}"
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_group_permissions#ref-permission_id>
+    ] .
+
+<urn:MAPPING-ID10> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "object_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:string
+        ];
+      rr:predicate <http://example.org/mappingdata/django_admin_log#object_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_admin_log#object_repr>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "object_repr";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal;
+          rr:column "action_flag"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_admin_log#action_flag>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "id"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_admin_log#id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_admin_log#content_type_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:column "content_type_id";
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_admin_log#action_time>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:dateTime;
+          rr:column "action_time"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "change_message";
+          rr:termType rr:Literal;
+          rr:datatype xsd:string
+        ];
+      rr:predicate <http://example.org/mappingdata/django_admin_log#change_message>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_admin_log#user_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "user_id"
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `django_admin_log`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:class <http://example.org/mappingdata/django_admin_log>;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/django_admin_log/id={id}"
+    ] .
+
+<urn:MAPPING-ID11> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_admin_log#ref-user_id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/auth_user/id={auth_user_id}"
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `django_admin_log`.`id` AS `django_admin_log_id`, `auth_user`.`id` AS `auth_user_id` FROM `django_admin_log`, `auth_user` WHERE `django_admin_log`.`user_id` = `auth_user`.`id`"
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/django_admin_log/id={django_admin_log_id}"
+    ] .
+
+<urn:MAPPING-ID12> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/django_admin_log/id={django_admin_log_id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/django_content_type/id={django_content_type_id}"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_admin_log#ref-content_type_id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `django_admin_log`.`id` AS `django_admin_log_id`, `django_content_type`.`id` AS `django_content_type_id` FROM `django_admin_log`, `django_content_type` WHERE `django_admin_log`.`content_type_id` = `django_content_type`.`id`"
+    ] .
+
+<urn:MAPPING-ID13> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_migrations#id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "id";
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_migrations#applied>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:dateTime;
+          rr:column "applied";
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_migrations#app>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:column "app";
+          rr:datatype xsd:string
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:column "name";
+          rr:datatype xsd:string
+        ];
+      rr:predicate <http://example.org/mappingdata/django_migrations#name>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://example.org/mappingdata/django_migrations/id={id}";
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/django_migrations>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `django_migrations`"
+    ] .
+
+<urn:MAPPING-ID14> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/auth_user>;
+      rr:template "http://example.org/mappingdata/auth_user/id={id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "last_login";
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user#last_login>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#is_superuser>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:column "is_superuser";
+          rr:datatype xsd:boolean
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#password>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "password";
+          rr:datatype xsd:string;
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:column "id";
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#last_name>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "last_name";
+          rr:termType rr:Literal;
+          rr:datatype xsd:string
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:termType rr:Literal;
+          rr:column "first_name"
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user#first_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "username"
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user#username>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#date_joined>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal;
+          rr:column "date_joined"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#is_staff>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "is_staff";
+          rr:datatype xsd:boolean;
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:boolean;
+          rr:column "is_active";
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user#is_active>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user#email>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "email";
+          rr:termType rr:Literal;
+          rr:datatype xsd:string
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `auth_user`"
+    ] .
+
+<urn:MAPPING-ID15> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llmchat#user_id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "user_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal;
+          rr:column "created_at"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_llmchat#created_at>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llmchat#chat_title>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "chat_title"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_llmchat#id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_llmchat`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/authentication_llmchat>;
+      rr:template "http://example.org/mappingdata/authentication_llmchat/id={id}"
+    ] .
+
+<urn:MAPPING-ID16> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:template "http://example.org/mappingdata/authentication_llmchat/id={authentication_llmchat_id}";
+      rr:termType rr:IRI
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llmchat#ref-user_id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/authentication_user/id={authentication_user_id}"
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `authentication_llmchat`.`id` AS `authentication_llmchat_id`, `authentication_user`.`id` AS `authentication_user_id` FROM `authentication_llmchat`, `authentication_user` WHERE `authentication_llmchat`.`user_id` = `authentication_user`.`id`"
+    ] .
+
+<urn:MAPPING-ID17> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `auth_user_groups`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/auth_user_groups/id={id}";
+      rr:class <http://example.org/mappingdata/auth_user_groups>
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "group_id"
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user_groups#group_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user_groups#id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "id"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "user_id"
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user_groups#user_id>
+    ] .
+
+<urn:MAPPING-ID18> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/auth_user_groups/id={auth_user_groups_id}"
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_user_groups`.`id` AS `auth_user_groups_id`, `auth_group`.`id` AS `auth_group_id` FROM `auth_user_groups`, `auth_group` WHERE `auth_user_groups`.`group_id` = `auth_group`.`id`"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user_groups#ref-group_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:template "http://example.org/mappingdata/auth_group/id={auth_group_id}";
+          rr:termType rr:IRI
+        ]
+    ] .
+
+<urn:MAPPING-ID19> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:template "http://example.org/mappingdata/auth_user_groups/id={auth_user_groups_id}";
+      rr:termType rr:IRI
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_user_groups`.`id` AS `auth_user_groups_id`, `auth_user`.`id` AS `auth_user_id` FROM `auth_user_groups`, `auth_user` WHERE `auth_user_groups`.`user_id` = `auth_user`.`id`"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user_groups#ref-user_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:template "http://example.org/mappingdata/auth_user/id={auth_user_id}";
+          rr:termType rr:IRI
+        ]
+    ] .
+
+<urn:MAPPING-ID20> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:string;
+          rr:column "email";
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_user#email>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_user#id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_user#activation_token>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "activation_token"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:string;
+          rr:column "last_name";
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_user#last_name>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_user#password>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "password";
+          rr:termType rr:Literal;
+          rr:datatype xsd:string
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_user#first_name>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "first_name"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "created_at";
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_user#created_at>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:column "is_active";
+          rr:termType rr:Literal;
+          rr:datatype xsd:boolean
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_user#is_active>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_user`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:template "http://example.org/mappingdata/authentication_user/id={id}";
+      rr:class <http://example.org/mappingdata/authentication_user>;
+      rr:termType rr:IRI
+    ] .
+
+<urn:MAPPING-ID21> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_session#session_key>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:column "session_key";
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/django_session#session_data>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:column "session_data";
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:dateTime;
+          rr:termType rr:Literal;
+          rr:column "expire_date"
+        ];
+      rr:predicate <http://example.org/mappingdata/django_session#expire_date>
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class <http://example.org/mappingdata/django_session>;
+      rr:template "http://example.org/mappingdata/django_session/session_key={session_key}";
+      rr:termType rr:IRI
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `django_session`"
+    ] .
+
+<urn:MAPPING-ID22> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:class <http://example.org/mappingdata/auth_user_user_permissions>;
+      rr:template "http://example.org/mappingdata/auth_user_user_permissions/id={id}";
+      rr:termType rr:IRI
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:column "user_id";
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user_user_permissions#user_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "permission_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user_user_permissions#permission_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/auth_user_user_permissions#id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal;
+          rr:column "id"
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `auth_user_user_permissions`"
+    ] .
+
+<urn:MAPPING-ID23> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://example.org/mappingdata/auth_user_user_permissions/id={auth_user_user_permissions_id}";
+      rr:termType rr:IRI
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:template "http://example.org/mappingdata/auth_permission/id={auth_permission_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user_user_permissions#ref-permission_id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_user_user_permissions`.`id` AS `auth_user_user_permissions_id`, `auth_permission`.`id` AS `auth_permission_id` FROM `auth_user_user_permissions`, `auth_permission` WHERE `auth_user_user_permissions`.`permission_id` = `auth_permission`.`id`"
+    ] .
+
+<urn:MAPPING-ID24> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://example.org/mappingdata/auth_user/id={auth_user_id}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate <http://example.org/mappingdata/auth_user_user_permissions#ref-user_id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `auth_user_user_permissions`.`id` AS `auth_user_user_permissions_id`, `auth_user`.`id` AS `auth_user_id` FROM `auth_user_user_permissions`, `auth_user` WHERE `auth_user_user_permissions`.`user_id` = `auth_user`.`id`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/auth_user_user_permissions/id={auth_user_user_permissions_id}"
+    ] .
+
+<urn:MAPPING-ID25> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:template "http://example.org/mappingdata/authentication_userpreferences/id={id}";
+      rr:class <http://example.org/mappingdata/authentication_userpreferences>;
+      rr:termType rr:IRI
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:column "llm_id";
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userpreferences#llm_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "parameters"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userpreferences#parameters>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:integer;
+          rr:termType rr:Literal;
+          rr:column "id"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userpreferences#id>
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:integer;
+          rr:column "user_id";
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userpreferences#user_id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_userpreferences`"
+    ] .
+
+<urn:MAPPING-ID26> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `authentication_userpreferences`.`id` AS `authentication_userpreferences_id`, `authentication_llminventory`.`id` AS `authentication_llminventory_id` FROM `authentication_userpreferences`, `authentication_llminventory` WHERE `authentication_userpreferences`.`llm_id` = `authentication_llminventory`.`id`"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_userpreferences#ref-llm_id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/authentication_llminventory/id={authentication_llminventory_id}"
+        ]
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/authentication_userpreferences/id={authentication_userpreferences_id}"
+    ] .
+
+<urn:MAPPING-ID27> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://example.org/mappingdata/authentication_userpreferences/id={authentication_userpreferences_id}";
+      rr:termType rr:IRI
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_userpreferences#ref-user_id>;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:template "http://example.org/mappingdata/authentication_user/id={authentication_user_id}";
+          rr:termType rr:IRI
+        ]
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `authentication_userpreferences`.`id` AS `authentication_userpreferences_id`, `authentication_user`.`id` AS `authentication_user_id` FROM `authentication_userpreferences`, `authentication_user` WHERE `authentication_userpreferences`.`user_id` = `authentication_user`.`id`"
+    ] .
+
+<urn:MAPPING-ID28> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_role#id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:column "id";
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:string;
+          rr:column "role_name"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_role#role_name>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_role`"
+    ];
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/authentication_role/id={id}";
+      rr:class <http://example.org/mappingdata/authentication_role>
+    ] .
+
+<urn:MAPPING-ID29> a rr:TriplesMap;
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:integer;
+          rr:column "id";
+          rr:termType rr:Literal
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_llminventory#id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llminventory#llm_name>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:column "llm_name";
+          rr:termType rr:Literal
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llminventory#endpoint>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:termType rr:Literal;
+          rr:column "endpoint"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:TermMap, rr:ObjectMap;
+          rr:datatype xsd:string;
+          rr:termType rr:Literal;
+          rr:column "credentials"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_llminventory#credentials>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llminventory#parameters>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:datatype xsd:string;
+          rr:termType rr:Literal;
+          rr:column "parameters"
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_llminventory#status>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:column "status";
+          rr:datatype xsd:boolean
+        ]
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:template "http://example.org/mappingdata/authentication_llminventory/id={id}";
+      rr:termType rr:IRI;
+      rr:class <http://example.org/mappingdata/authentication_llminventory>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_llminventory`"
+    ] .
+
+<urn:MAPPING-ID30> a rr:TriplesMap;
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/authentication_userrole/id={id}";
+      rr:class <http://example.org/mappingdata/authentication_userrole>
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer;
+          rr:column "role_id"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userrole#role_id>
+    ], [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_userrole#user_id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "user_id";
+          rr:termType rr:Literal;
+          rr:datatype xsd:integer
+        ]
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:Literal;
+          rr:column "id";
+          rr:datatype xsd:integer
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userrole#id>
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT * FROM `authentication_userrole`"
+    ] .
+
+<urn:MAPPING-ID31> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `authentication_userrole`.`id` AS `authentication_userrole_id`, `authentication_role`.`id` AS `authentication_role_id` FROM `authentication_userrole`, `authentication_role` WHERE `authentication_userrole`.`role_id` = `authentication_role`.`id`"
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/authentication_userrole/id={authentication_userrole_id}"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:predicate <http://example.org/mappingdata/authentication_userrole#ref-role_id>;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/authentication_role/id={authentication_role_id}"
+        ]
+    ] .
+
+<urn:MAPPING-ID32> a rr:TriplesMap;
+  rr:subjectMap [ a rr:TermMap, rr:SubjectMap;
+      rr:termType rr:IRI;
+      rr:template "http://example.org/mappingdata/authentication_userrole/id={authentication_userrole_id}"
+    ];
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "SELECT `authentication_userrole`.`id` AS `authentication_userrole_id`, `authentication_user`.`id` AS `authentication_user_id` FROM `authentication_userrole`, `authentication_user` WHERE `authentication_userrole`.`user_id` = `authentication_user`.`id`"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:termType rr:IRI;
+          rr:template "http://example.org/mappingdata/authentication_user/id={authentication_user_id}"
+        ];
+      rr:predicate <http://example.org/mappingdata/authentication_userrole#ref-user_id>
+    ] .

@@ -1,0 +1,808 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/mappingdata#"
+     xml:base="http://example.org/mappingdata"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/mappingdata"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group_permissions#ref-group_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_group_permissions#ref-group_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group_permissions#ref-permission_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_group_permissions#ref-permission_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_permission#ref-content_type_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_permission#ref-content_type_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_groups#ref-group_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_user_groups#ref-group_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_groups#ref-user_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_user_groups#ref-user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_user_permissions#ref-permission_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_user_user_permissions#ref-permission_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_user_permissions#ref-user_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/auth_user_user_permissions#ref-user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory#ref-llm_chat_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/authentication_chathistory#ref-llm_chat_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llmchat#ref-user_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/authentication_llmchat#ref-user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences#ref-llm_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/authentication_userpreferences#ref-llm_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences#ref-user_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/authentication_userpreferences#ref-user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userrole#ref-role_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/authentication_userrole#ref-role_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userrole#ref-user_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/authentication_userrole#ref-user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#ref-content_type_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/django_admin_log#ref-content_type_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#ref-user_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/mappingdata/django_admin_log#ref-user_id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_group#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group#name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_group#name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group_permissions#group_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_group_permissions#group_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group_permissions#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_group_permissions#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group_permissions#permission_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_group_permissions#permission_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_permission#codename -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_permission#codename"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_permission#content_type_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_permission#content_type_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_permission#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_permission#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_permission#name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_permission#name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#date_joined -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#date_joined"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#email -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#email"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#first_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#first_name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#is_active -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#is_active"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#is_staff -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#is_staff"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#is_superuser -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#is_superuser"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#last_login -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#last_login"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#last_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#last_name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#password -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#password"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user#username -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user#username"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_groups#group_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user_groups#group_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_groups#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user_groups#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_groups#user_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user_groups#user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_user_permissions#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user_user_permissions#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_user_permissions#permission_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user_user_permissions#permission_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_user_permissions#user_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/auth_user_user_permissions#user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory#created_at -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_chathistory#created_at"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_chathistory#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory#llm_chat_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_chathistory#llm_chat_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory#prompt -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_chathistory#prompt"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory#response -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_chathistory#response"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llmchat#chat_title -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llmchat#chat_title"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llmchat#created_at -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llmchat#created_at"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llmchat#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llmchat#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llmchat#user_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llmchat#user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory#credentials -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llminventory#credentials"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory#endpoint -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llminventory#endpoint"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llminventory#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory#llm_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llminventory#llm_name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory#parameters -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llminventory#parameters"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory#status -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_llminventory#status"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_role#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_role#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_role#role_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_role#role_name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#activation_token -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#activation_token"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#created_at -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#created_at"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#email -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#email"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#first_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#first_name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#is_active -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#is_active"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#last_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#last_name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user#password -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_user#password"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userpreferences#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences#llm_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userpreferences#llm_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences#parameters -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userpreferences#parameters"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences#user_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userpreferences#user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userrole#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userrole#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userrole#role_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userrole#role_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userrole#user_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/authentication_userrole#user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#action_flag -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#action_flag"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#action_time -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#action_time"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#change_message -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#change_message"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#content_type_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#content_type_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#object_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#object_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#object_repr -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#object_repr"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log#user_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_admin_log#user_id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_content_type#app_label -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_content_type#app_label"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_content_type#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_content_type#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_content_type#model -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_content_type#model"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_migrations#app -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_migrations#app"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_migrations#applied -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_migrations#applied"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_migrations#id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_migrations#id"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_migrations#name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_migrations#name"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_session#expire_date -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_session#expire_date"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_session#session_data -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_session#session_data"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_session#session_key -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/mappingdata/django_session#session_key"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/auth_group"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_group_permissions -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/auth_group_permissions"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_permission -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/auth_permission"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/auth_user"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_groups -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/auth_user_groups"/>
+    
+
+
+    <!-- http://example.org/mappingdata/auth_user_user_permissions -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/auth_user_user_permissions"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_chathistory -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_chathistory"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llmchat -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_llmchat"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_llminventory -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_llminventory"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_role -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_role"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_user -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_user"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userpreferences -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_userpreferences"/>
+    
+
+
+    <!-- http://example.org/mappingdata/authentication_userrole -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/authentication_userrole"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_admin_log -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/django_admin_log"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_content_type -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/django_content_type"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_migrations -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/django_migrations"/>
+    
+
+
+    <!-- http://example.org/mappingdata/django_session -->
+
+
+    <owl:Class rdf:about="http://example.org/mappingdata/django_session"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.20) https://github.com/owlcs/owlapi/ -->
+
+

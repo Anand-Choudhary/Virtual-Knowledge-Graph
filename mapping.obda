@@ -1,0 +1,137 @@
+[PrefixDeclaration]
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+owl:		http://www.w3.org/2002/07/owl#
+xsd:		http://www.w3.org/2001/XMLSchema#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPPING-ID1
+target		<http://example.org/mappingdata/auth_group/id={id}> a <http://example.org/mappingdata/auth_group> ; <http://example.org/mappingdata/auth_group#id> {id}^^xsd:integer ; <http://example.org/mappingdata/auth_group#name> {name}^^xsd:string . 
+source		SELECT * FROM `auth_group`
+
+mappingId	MAPPING-ID2
+target		<http://example.org/mappingdata/django_content_type/id={id}> a <http://example.org/mappingdata/django_content_type> ; <http://example.org/mappingdata/django_content_type#id> {id}^^xsd:integer ; <http://example.org/mappingdata/django_content_type#app_label> {app_label}^^xsd:string ; <http://example.org/mappingdata/django_content_type#model> {model}^^xsd:string . 
+source		SELECT * FROM `django_content_type`
+
+mappingId	MAPPING-ID3
+target		<http://example.org/mappingdata/auth_permission/id={id}> a <http://example.org/mappingdata/auth_permission> ; <http://example.org/mappingdata/auth_permission#id> {id}^^xsd:integer ; <http://example.org/mappingdata/auth_permission#name> {name}^^xsd:string ; <http://example.org/mappingdata/auth_permission#content_type_id> {content_type_id}^^xsd:integer ; <http://example.org/mappingdata/auth_permission#codename> {codename}^^xsd:string . 
+source		SELECT * FROM `auth_permission`
+
+mappingId	MAPPING-ID4
+target		<http://example.org/mappingdata/auth_permission/id={auth_permission_id}> <http://example.org/mappingdata/auth_permission#ref-content_type_id> <http://example.org/mappingdata/django_content_type/id={django_content_type_id}> . 
+source		SELECT `auth_permission`.`id` AS `auth_permission_id`, `django_content_type`.`id` AS `django_content_type_id` FROM `auth_permission`, `django_content_type` WHERE `auth_permission`.`content_type_id` = `django_content_type`.`id`
+
+mappingId	MAPPING-ID5
+target		<http://example.org/mappingdata/authentication_chathistory/id={id}> a <http://example.org/mappingdata/authentication_chathistory> ; <http://example.org/mappingdata/authentication_chathistory#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_chathistory#created_at> {created_at}^^xsd:dateTime ; <http://example.org/mappingdata/authentication_chathistory#prompt> {prompt}^^xsd:string ; <http://example.org/mappingdata/authentication_chathistory#response> {response}^^xsd:string ; <http://example.org/mappingdata/authentication_chathistory#llm_chat_id> {llm_chat_id}^^xsd:integer . 
+source		SELECT * FROM `authentication_chathistory`
+
+mappingId	MAPPING-ID6
+target		<http://example.org/mappingdata/authentication_chathistory/id={authentication_chathistory_id}> <http://example.org/mappingdata/authentication_chathistory#ref-llm_chat_id> <http://example.org/mappingdata/authentication_llmchat/id={authentication_llmchat_id}> . 
+source		SELECT `authentication_chathistory`.`id` AS `authentication_chathistory_id`, `authentication_llmchat`.`id` AS `authentication_llmchat_id` FROM `authentication_chathistory`, `authentication_llmchat` WHERE `authentication_chathistory`.`llm_chat_id` = `authentication_llmchat`.`id`
+
+mappingId	MAPPING-ID7
+target		<http://example.org/mappingdata/auth_group_permissions/id={id}> a <http://example.org/mappingdata/auth_group_permissions> ; <http://example.org/mappingdata/auth_group_permissions#id> {id}^^xsd:integer ; <http://example.org/mappingdata/auth_group_permissions#group_id> {group_id}^^xsd:integer ; <http://example.org/mappingdata/auth_group_permissions#permission_id> {permission_id}^^xsd:integer . 
+source		SELECT * FROM `auth_group_permissions`
+
+mappingId	MAPPING-ID8
+target		<http://example.org/mappingdata/auth_group_permissions/id={auth_group_permissions_id}> <http://example.org/mappingdata/auth_group_permissions#ref-group_id> <http://example.org/mappingdata/auth_group/id={auth_group_id}> . 
+source		SELECT `auth_group_permissions`.`id` AS `auth_group_permissions_id`, `auth_group`.`id` AS `auth_group_id` FROM `auth_group_permissions`, `auth_group` WHERE `auth_group_permissions`.`group_id` = `auth_group`.`id`
+
+mappingId	MAPPING-ID9
+target		<http://example.org/mappingdata/auth_group_permissions/id={auth_group_permissions_id}> <http://example.org/mappingdata/auth_group_permissions#ref-permission_id> <http://example.org/mappingdata/auth_permission/id={auth_permission_id}> . 
+source		SELECT `auth_group_permissions`.`id` AS `auth_group_permissions_id`, `auth_permission`.`id` AS `auth_permission_id` FROM `auth_group_permissions`, `auth_permission` WHERE `auth_group_permissions`.`permission_id` = `auth_permission`.`id`
+
+mappingId	MAPPING-ID10
+target		<http://example.org/mappingdata/django_admin_log/id={id}> a <http://example.org/mappingdata/django_admin_log> ; <http://example.org/mappingdata/django_admin_log#id> {id}^^xsd:integer ; <http://example.org/mappingdata/django_admin_log#action_time> {action_time}^^xsd:dateTime ; <http://example.org/mappingdata/django_admin_log#object_id> {object_id}^^xsd:string ; <http://example.org/mappingdata/django_admin_log#object_repr> {object_repr}^^xsd:string ; <http://example.org/mappingdata/django_admin_log#action_flag> {action_flag}^^xsd:integer ; <http://example.org/mappingdata/django_admin_log#change_message> {change_message}^^xsd:string ; <http://example.org/mappingdata/django_admin_log#content_type_id> {content_type_id}^^xsd:integer ; <http://example.org/mappingdata/django_admin_log#user_id> {user_id}^^xsd:integer . 
+source		SELECT * FROM `django_admin_log`
+
+mappingId	MAPPING-ID11
+target		<http://example.org/mappingdata/django_admin_log/id={django_admin_log_id}> <http://example.org/mappingdata/django_admin_log#ref-user_id> <http://example.org/mappingdata/auth_user/id={auth_user_id}> . 
+source		SELECT `django_admin_log`.`id` AS `django_admin_log_id`, `auth_user`.`id` AS `auth_user_id` FROM `django_admin_log`, `auth_user` WHERE `django_admin_log`.`user_id` = `auth_user`.`id`
+
+mappingId	MAPPING-ID12
+target		<http://example.org/mappingdata/django_admin_log/id={django_admin_log_id}> <http://example.org/mappingdata/django_admin_log#ref-content_type_id> <http://example.org/mappingdata/django_content_type/id={django_content_type_id}> . 
+source		SELECT `django_admin_log`.`id` AS `django_admin_log_id`, `django_content_type`.`id` AS `django_content_type_id` FROM `django_admin_log`, `django_content_type` WHERE `django_admin_log`.`content_type_id` = `django_content_type`.`id`
+
+mappingId	MAPPING-ID13
+target		<http://example.org/mappingdata/django_migrations/id={id}> a <http://example.org/mappingdata/django_migrations> ; <http://example.org/mappingdata/django_migrations#id> {id}^^xsd:integer ; <http://example.org/mappingdata/django_migrations#app> {app}^^xsd:string ; <http://example.org/mappingdata/django_migrations#name> {name}^^xsd:string ; <http://example.org/mappingdata/django_migrations#applied> {applied}^^xsd:dateTime . 
+source		SELECT * FROM `django_migrations`
+
+mappingId	MAPPING-ID14
+target		<http://example.org/mappingdata/auth_user/id={id}> a <http://example.org/mappingdata/auth_user> ; <http://example.org/mappingdata/auth_user#id> {id}^^xsd:integer ; <http://example.org/mappingdata/auth_user#password> {password}^^xsd:string ; <http://example.org/mappingdata/auth_user#last_login> {last_login}^^xsd:dateTime ; <http://example.org/mappingdata/auth_user#is_superuser> {is_superuser}^^xsd:boolean ; <http://example.org/mappingdata/auth_user#username> {username}^^xsd:string ; <http://example.org/mappingdata/auth_user#first_name> {first_name}^^xsd:string ; <http://example.org/mappingdata/auth_user#last_name> {last_name}^^xsd:string ; <http://example.org/mappingdata/auth_user#email> {email}^^xsd:string ; <http://example.org/mappingdata/auth_user#is_staff> {is_staff}^^xsd:boolean ; <http://example.org/mappingdata/auth_user#is_active> {is_active}^^xsd:boolean ; <http://example.org/mappingdata/auth_user#date_joined> {date_joined}^^xsd:dateTime . 
+source		SELECT * FROM `auth_user`
+
+mappingId	MAPPING-ID15
+target		<http://example.org/mappingdata/authentication_llmchat/id={id}> a <http://example.org/mappingdata/authentication_llmchat> ; <http://example.org/mappingdata/authentication_llmchat#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_llmchat#created_at> {created_at}^^xsd:dateTime ; <http://example.org/mappingdata/authentication_llmchat#chat_title> {chat_title}^^xsd:string ; <http://example.org/mappingdata/authentication_llmchat#user_id> {user_id}^^xsd:integer . 
+source		SELECT * FROM `authentication_llmchat`
+
+mappingId	MAPPING-ID16
+target		<http://example.org/mappingdata/authentication_llmchat/id={authentication_llmchat_id}> <http://example.org/mappingdata/authentication_llmchat#ref-user_id> <http://example.org/mappingdata/authentication_user/id={authentication_user_id}> . 
+source		SELECT `authentication_llmchat`.`id` AS `authentication_llmchat_id`, `authentication_user`.`id` AS `authentication_user_id` FROM `authentication_llmchat`, `authentication_user` WHERE `authentication_llmchat`.`user_id` = `authentication_user`.`id`
+
+mappingId	MAPPING-ID17
+target		<http://example.org/mappingdata/auth_user_groups/id={id}> a <http://example.org/mappingdata/auth_user_groups> ; <http://example.org/mappingdata/auth_user_groups#id> {id}^^xsd:integer ; <http://example.org/mappingdata/auth_user_groups#user_id> {user_id}^^xsd:integer ; <http://example.org/mappingdata/auth_user_groups#group_id> {group_id}^^xsd:integer . 
+source		SELECT * FROM `auth_user_groups`
+
+mappingId	MAPPING-ID18
+target		<http://example.org/mappingdata/auth_user_groups/id={auth_user_groups_id}> <http://example.org/mappingdata/auth_user_groups#ref-group_id> <http://example.org/mappingdata/auth_group/id={auth_group_id}> . 
+source		SELECT `auth_user_groups`.`id` AS `auth_user_groups_id`, `auth_group`.`id` AS `auth_group_id` FROM `auth_user_groups`, `auth_group` WHERE `auth_user_groups`.`group_id` = `auth_group`.`id`
+
+mappingId	MAPPING-ID19
+target		<http://example.org/mappingdata/auth_user_groups/id={auth_user_groups_id}> <http://example.org/mappingdata/auth_user_groups#ref-user_id> <http://example.org/mappingdata/auth_user/id={auth_user_id}> . 
+source		SELECT `auth_user_groups`.`id` AS `auth_user_groups_id`, `auth_user`.`id` AS `auth_user_id` FROM `auth_user_groups`, `auth_user` WHERE `auth_user_groups`.`user_id` = `auth_user`.`id`
+
+mappingId	MAPPING-ID20
+target		<http://example.org/mappingdata/authentication_user/id={id}> a <http://example.org/mappingdata/authentication_user> ; <http://example.org/mappingdata/authentication_user#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_user#email> {email}^^xsd:string ; <http://example.org/mappingdata/authentication_user#first_name> {first_name}^^xsd:string ; <http://example.org/mappingdata/authentication_user#last_name> {last_name}^^xsd:string ; <http://example.org/mappingdata/authentication_user#password> {password}^^xsd:string ; <http://example.org/mappingdata/authentication_user#activation_token> {activation_token}^^xsd:string ; <http://example.org/mappingdata/authentication_user#is_active> {is_active}^^xsd:boolean ; <http://example.org/mappingdata/authentication_user#created_at> {created_at}^^xsd:dateTime . 
+source		SELECT * FROM `authentication_user`
+
+mappingId	MAPPING-ID21
+target		<http://example.org/mappingdata/django_session/session_key={session_key}> a <http://example.org/mappingdata/django_session> ; <http://example.org/mappingdata/django_session#session_key> {session_key}^^xsd:string ; <http://example.org/mappingdata/django_session#session_data> {session_data}^^xsd:string ; <http://example.org/mappingdata/django_session#expire_date> {expire_date}^^xsd:dateTime . 
+source		SELECT * FROM `django_session`
+
+mappingId	MAPPING-ID22
+target		<http://example.org/mappingdata/auth_user_user_permissions/id={id}> a <http://example.org/mappingdata/auth_user_user_permissions> ; <http://example.org/mappingdata/auth_user_user_permissions#id> {id}^^xsd:integer ; <http://example.org/mappingdata/auth_user_user_permissions#user_id> {user_id}^^xsd:integer ; <http://example.org/mappingdata/auth_user_user_permissions#permission_id> {permission_id}^^xsd:integer . 
+source		SELECT * FROM `auth_user_user_permissions`
+
+mappingId	MAPPING-ID23
+target		<http://example.org/mappingdata/auth_user_user_permissions/id={auth_user_user_permissions_id}> <http://example.org/mappingdata/auth_user_user_permissions#ref-permission_id> <http://example.org/mappingdata/auth_permission/id={auth_permission_id}> . 
+source		SELECT `auth_user_user_permissions`.`id` AS `auth_user_user_permissions_id`, `auth_permission`.`id` AS `auth_permission_id` FROM `auth_user_user_permissions`, `auth_permission` WHERE `auth_user_user_permissions`.`permission_id` = `auth_permission`.`id`
+
+mappingId	MAPPING-ID24
+target		<http://example.org/mappingdata/auth_user_user_permissions/id={auth_user_user_permissions_id}> <http://example.org/mappingdata/auth_user_user_permissions#ref-user_id> <http://example.org/mappingdata/auth_user/id={auth_user_id}> . 
+source		SELECT `auth_user_user_permissions`.`id` AS `auth_user_user_permissions_id`, `auth_user`.`id` AS `auth_user_id` FROM `auth_user_user_permissions`, `auth_user` WHERE `auth_user_user_permissions`.`user_id` = `auth_user`.`id`
+
+mappingId	MAPPING-ID25
+target		<http://example.org/mappingdata/authentication_userpreferences/id={id}> a <http://example.org/mappingdata/authentication_userpreferences> ; <http://example.org/mappingdata/authentication_userpreferences#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_userpreferences#parameters> {parameters}^^xsd:string ; <http://example.org/mappingdata/authentication_userpreferences#llm_id> {llm_id}^^xsd:integer ; <http://example.org/mappingdata/authentication_userpreferences#user_id> {user_id}^^xsd:integer . 
+source		SELECT * FROM `authentication_userpreferences`
+
+mappingId	MAPPING-ID26
+target		<http://example.org/mappingdata/authentication_userpreferences/id={authentication_userpreferences_id}> <http://example.org/mappingdata/authentication_userpreferences#ref-llm_id> <http://example.org/mappingdata/authentication_llminventory/id={authentication_llminventory_id}> . 
+source		SELECT `authentication_userpreferences`.`id` AS `authentication_userpreferences_id`, `authentication_llminventory`.`id` AS `authentication_llminventory_id` FROM `authentication_userpreferences`, `authentication_llminventory` WHERE `authentication_userpreferences`.`llm_id` = `authentication_llminventory`.`id`
+
+mappingId	MAPPING-ID27
+target		<http://example.org/mappingdata/authentication_userpreferences/id={authentication_userpreferences_id}> <http://example.org/mappingdata/authentication_userpreferences#ref-user_id> <http://example.org/mappingdata/authentication_user/id={authentication_user_id}> . 
+source		SELECT `authentication_userpreferences`.`id` AS `authentication_userpreferences_id`, `authentication_user`.`id` AS `authentication_user_id` FROM `authentication_userpreferences`, `authentication_user` WHERE `authentication_userpreferences`.`user_id` = `authentication_user`.`id`
+
+mappingId	MAPPING-ID28
+target		<http://example.org/mappingdata/authentication_role/id={id}> a <http://example.org/mappingdata/authentication_role> ; <http://example.org/mappingdata/authentication_role#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_role#role_name> {role_name}^^xsd:string . 
+source		SELECT * FROM `authentication_role`
+
+mappingId	MAPPING-ID29
+target		<http://example.org/mappingdata/authentication_llminventory/id={id}> a <http://example.org/mappingdata/authentication_llminventory> ; <http://example.org/mappingdata/authentication_llminventory#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_llminventory#llm_name> {llm_name}^^xsd:string ; <http://example.org/mappingdata/authentication_llminventory#endpoint> {endpoint}^^xsd:string ; <http://example.org/mappingdata/authentication_llminventory#parameters> {parameters}^^xsd:string ; <http://example.org/mappingdata/authentication_llminventory#credentials> {credentials}^^xsd:string ; <http://example.org/mappingdata/authentication_llminventory#status> {status}^^xsd:boolean . 
+source		SELECT * FROM `authentication_llminventory`
+
+mappingId	MAPPING-ID30
+target		<http://example.org/mappingdata/authentication_userrole/id={id}> a <http://example.org/mappingdata/authentication_userrole> ; <http://example.org/mappingdata/authentication_userrole#id> {id}^^xsd:integer ; <http://example.org/mappingdata/authentication_userrole#role_id> {role_id}^^xsd:integer ; <http://example.org/mappingdata/authentication_userrole#user_id> {user_id}^^xsd:integer . 
+source		SELECT * FROM `authentication_userrole`
+
+mappingId	MAPPING-ID31
+target		<http://example.org/mappingdata/authentication_userrole/id={authentication_userrole_id}> <http://example.org/mappingdata/authentication_userrole#ref-role_id> <http://example.org/mappingdata/authentication_role/id={authentication_role_id}> . 
+source		SELECT `authentication_userrole`.`id` AS `authentication_userrole_id`, `authentication_role`.`id` AS `authentication_role_id` FROM `authentication_userrole`, `authentication_role` WHERE `authentication_userrole`.`role_id` = `authentication_role`.`id`
+
+mappingId	MAPPING-ID32
+target		<http://example.org/mappingdata/authentication_userrole/id={authentication_userrole_id}> <http://example.org/mappingdata/authentication_userrole#ref-user_id> <http://example.org/mappingdata/authentication_user/id={authentication_user_id}> . 
+source		SELECT `authentication_userrole`.`id` AS `authentication_userrole_id`, `authentication_user`.`id` AS `authentication_user_id` FROM `authentication_userrole`, `authentication_user` WHERE `authentication_userrole`.`user_id` = `authentication_user`.`id`
+]]
+
